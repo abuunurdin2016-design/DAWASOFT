@@ -1,0 +1,37 @@
+# Netlify configuration
+# - publishes the static frontend in ./public
+# - exposes the API gateway in ./netlify/functions as /api/v1/*
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Reverse proxy / API gateway: /api/v1/... -> /.netlify/functions/api/...
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# SPA-style fallback is intentionally NOT enabled: each page is a real .html file.
+# Deep-link safety for the app shell:
+[[redirects]]
+  from = "/app/*"
+  to = "/home.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# The service worker must always be revalidated so updates roll out.
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"

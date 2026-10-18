@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Reports · Pharmacy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    #rep-chart { width: 100%; display: block; }
+    .kpi .label { white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="ph-app">
+    <div id="ph-offline-banner"></div>
+    <header class="ph-header" id="ph-header" data-title="Reports"></header>
+    <main class="ph-main">
+
+      <section class="card">
+        <div class="card-head"><h3>Dashboard</h3><span class="muted small" id="dash-date"></span></div>
+        <div class="kpi-grid" id="dash-kpis"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Period report</h3></div>
+        <div class="segmented" id="rep-mode">
+          <button data-mode="daily" class="active">Daily</button>
+          <button data-mode="weekly">Weekly</button>
+          <button data-mode="monthly">Monthly</button>
+          <button data-mode="annual">Annual</button>
+        </div>
+        <div class="row mt wrap">
+          <input class="input" type="date" id="rep-date" style="max-width:200px">
+          <input class="input hidden" type="month" id="rep-month" style="max-width:200px">
+          <input class="input hidden" type="number" id="rep-year" style="max-width:140px" min="2000" max="2100">
+          <button class="btn btn-primary" id="rep-run">Show</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3 id="rep-title">Summary</h3></div>
+        <div class="kpi-grid" id="rep-kpis"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Cash vs Lipa Namba</h3></div>
+        <canvas id="rep-chart" height="240"></canvas>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Breakdown</h3></div>
+        <div class="table-wrap"><table class="data" id="rep-table"></table></div>
+      </section>
+
+    </main>
+    <nav id="ph-bottomnav"></nav>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/permissions.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/reports.js"></script>
+</body>
+</html>

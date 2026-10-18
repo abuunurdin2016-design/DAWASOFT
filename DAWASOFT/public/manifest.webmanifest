@@ -1,0 +1,14 @@
+{
+  "name": "Pharmacy Management System",
+  "short_name": "Pharmacy",
+  "description": "Offline-capable pharmacy point of sale, inventory and reporting.",
+  "start_url": "home.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

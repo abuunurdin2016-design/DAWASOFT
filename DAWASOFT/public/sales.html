@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sales · Pharmacy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    @media print { body * { visibility: hidden; } #receipt-print, #receipt-print * { visibility: visible; }
+      #receipt-print { position: absolute; left: 0; top: 0; width: 100%; padding: 16px; color: #000; } }
+    #receipt-print { display: none; }
+    .result-item { padding: .6rem .7rem; border-bottom: 1px solid var(--ph-border); cursor: pointer; display: flex; justify-content: space-between; gap: .5rem; }
+    .result-item:hover { background: var(--ph-surface-2); }
+    .cart-line-info { font-size: .76rem; color: var(--ph-muted); }
+    .qty-input { width: 74px; }
+  </style>
+</head>
+<body>
+  <div class="ph-app">
+    <div id="ph-offline-banner"></div>
+    <header class="ph-header" id="ph-header" data-title="Sales entry (POS)"></header>
+    <main class="ph-main">
+
+      <section class="card">
+        <label class="field"><span>Search an item to sell</span>
+          <input class="input" id="sales-search" placeholder="Type an item name…" autocomplete="off"></label>
+        <div id="sales-results" class="table-wrap hidden"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Cart</h3><span class="muted small" id="cart-count">0 items</span></div>
+        <div id="sales-cart" class="table-wrap"><table class="data"><thead>
+          <tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th><th></th></tr>
+        </thead><tbody id="sales-cart-body"></tbody></table></div>
+        <p class="muted small mt" id="cart-empty">No items yet. Search above to add.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Payment</h3></div>
+        <div class="segmented" id="payment-mode">
+          <button data-mode="cash" class="active">Cash</button>
+          <button data-mode="lipa_namba">Lipa Namba</button>
+        </div>
+        <label class="field mt"><span>Client name (optional, for the receipt)</span>
+          <input class="input" id="client-name" placeholder="e.g. Amina"></label>
+        <div class="row between mt">
+          <span class="muted">Total</span>
+          <strong style="font-size:1.4rem" id="sales-total">TZS 0</strong>
+        </div>
+        <button class="btn btn-primary btn-block mt" id="confirm-sale" disabled>Confirm sale</button>
+      </section>
+
+    </main>
+    <nav id="ph-bottomnav"></nav>
+  </div>
+  <div id="receipt-print" aria-hidden="true"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/permissions.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/sales.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>User Control · Pharmacy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .perm-row { display: flex; align-items: center; gap: .5rem; padding: .35rem 0; font-size: .88rem; }
+    .perm-row input { width: 18px; height: 18px; accent-color: var(--ph-accent); }
+    .perm-head { margin: .9rem 0 .3rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ph-muted); }
+  </style>
+</head>
+<body>
+  <div class="ph-app">
+    <div id="ph-offline-banner"></div>
+    <header class="ph-header" id="ph-header" data-title="User Control Panel"></header>
+    <main class="ph-main">
+      <section class="card" id="users-requests-card" hidden>
+        <div class="card-head"><h3>Administrator requests</h3><span class="muted small" id="req-count"></span></div>
+        <p class="muted small">These people signed up asking for Administrator (owner) access. Only the first administrator can decide. Approving gives full access to every page; rejecting deletes the account.</p>
+        <div id="users-requests"></div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h3>Users</h3><button class="btn btn-sm btn-ghost" id="users-refresh">Refresh</button></div>
+        <p class="muted small">Tap a worker to grant page and action access. New sign-ups can only use the Home page until you grant more.</p>
+        <div id="users-list"></div>
+      </section>
+    </main>
+    <nav id="ph-bottomnav"></nav>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/permissions.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/users.js"></script>
+</body>
+</html>

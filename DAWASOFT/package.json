@@ -1,0 +1,16 @@
+{
+  "name": "pharmacy-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-capable pharmacy management system (Netlify + Google Apps Script + Google Sheets).",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "netlify dev",
+    "dev:local": "node tools/dev-server.js",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "lint": "eslint public/js netlify/functions --ext .js || true"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

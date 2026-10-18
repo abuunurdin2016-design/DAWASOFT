@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sales management · Pharmacy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .sm-row { display: flex; align-items: center; gap: .7rem; padding: .7rem .2rem; border-bottom: 1px solid var(--ph-border); cursor: pointer; }
+    .sm-row:last-child { border-bottom: none; }
+    .sm-row:hover { background: var(--ph-surface-2); }
+    .ed-qty { width: 76px; }
+    .ed-result { padding: .5rem .6rem; border-bottom: 1px solid var(--ph-border); cursor: pointer; display: flex; justify-content: space-between; gap: .5rem; }
+    .ed-result:hover { background: var(--ph-surface-2); }
+  </style>
+</head>
+<body>
+  <div class="ph-app">
+    <div id="ph-offline-banner"></div>
+    <header class="ph-header" id="ph-header" data-title="Sales management"></header>
+    <main class="ph-main">
+
+      <section class="card">
+        <div class="card-head"><h3>Filters</h3></div>
+        <div class="grid-2">
+          <label class="field"><span>From</span><input class="input" type="date" id="f-from"></label>
+          <label class="field"><span>To</span><input class="input" type="date" id="f-to"></label>
+        </div>
+        <div class="grid-2">
+          <label class="field"><span>Payment</span>
+            <select class="input" id="f-mode">
+              <option value="">All</option><option value="cash">Cash</option><option value="lipa_namba">Lipa Namba</option>
+            </select></label>
+          <label class="field"><span>Status</span>
+            <select class="input" id="f-status">
+              <option value="">All</option><option value="Confirmed">Confirmed</option><option value="Need Review">Need Review</option>
+            </select></label>
+        </div>
+        <label class="field"><span>Item name contains</span><input class="input" id="f-item" placeholder="e.g. paracetamol"></label>
+        <label class="field"><span>Dispenser</span><input class="input" id="f-dispenser" placeholder="e.g. amina"></label>
+        <div class="row wrap">
+          <button class="btn btn-primary" id="sm-apply">Apply</button>
+          <button class="btn btn-ghost" id="sm-clear">Clear</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Sales history</h3><span class="muted small" id="sm-count">0</span></div>
+        <div id="sm-list"></div>
+      </section>
+
+    </main>
+    <nav id="ph-bottomnav"></nav>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/permissions.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/sales-management.js"></script>
+</body>
+</html>

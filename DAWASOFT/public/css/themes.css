@@ -1,0 +1,52 @@
+/* themes.css — design tokens, light/dark/auto themes, background + font variants */
+
+:root {
+  --ph-font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --ph-bg: #0b1220;
+  --ph-surface: #131c2e;
+  --ph-surface-2: #1b2540;
+  --ph-text: #e7edf6;
+  --ph-muted: #94a3b8;
+  --ph-border: #26324a;
+  --ph-accent: #22d3ee;
+  --ph-accent-2: #a78bfa;
+  --ph-accent-soft: rgba(34, 211, 238, 0.12);
+  --ph-danger: #f87171;
+  --ph-success: #34d399;
+  --ph-warning: #fbbf24;
+  --ph-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --ph-radius: 16px;
+  --ph-radius-sm: 10px;
+  --ph-nav-h: 68px;
+}
+
+[data-theme="light"] {
+  --ph-bg: #f3f6fc;
+  --ph-surface: #ffffff;
+  --ph-surface-2: #eef2fa;
+  --ph-text: #101a2e;
+  --ph-muted: #5c6a80;
+  --ph-border: #dce4f0;
+  --ph-accent: #0ea5e9;
+  --ph-accent-2: #7c3aed;
+  --ph-accent-soft: rgba(14, 165, 233, 0.12);
+  --ph-danger: #e11d48;
+  --ph-success: #059669;
+  --ph-warning: #d97706;
+  --ph-shadow: 0 10px 28px rgba(15, 23, 42, 0.10);
+}
+
+/* Optional background tints selectable in Settings */
+[data-bg="mint"] { --ph-bg: #eafaf4; --ph-surface: #ffffff; }
+[data-bg="sand"] { --ph-bg: #fbf6ec; --ph-surface: #ffffff; }
+[data-bg="slate"] { --ph-bg: #0e1420; }
+[data-bg="violet"] { --ph-bg: #120f24; --ph-surface: #1b1733; --ph-surface-2: #241f45; }
+
+/* Font variants (Settings -> Font type) */
+[data-font="rounded"] { --ph-font: "Segoe UI Variable", "Comic Sans MS", "Trebuchet MS", system-ui, sans-serif; }
+[data-font="serif"] { --ph-font: Georgia, "Times New Roman", serif; }
+[data-font="mono"] { --ph-font: "Cascadia Code", "Consolas", ui-monospace, monospace; }
+
+[data-theme="light"][data-bg="slate"] { --ph-bg: #e2e8f0; --ph-surface: #ffffff; }
+[data-theme="light"][data-bg="violet"] { --ph-bg: #f0edff; --ph-surface: #ffffff; --ph-surface-2: #ece7ff; }

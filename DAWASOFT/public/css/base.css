@@ -1,0 +1,39 @@
+/* base.css — reset, typography, small utilities */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--ph-font);
+  background: var(--ph-bg);
+  color: var(--ph-text);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4 { margin: 0 0 .5rem; font-weight: 700; line-height: 1.25; }
+h1 { font-size: 1.35rem; }
+h2 { font-size: 1.15rem; }
+h3 { font-size: 1rem; }
+p { margin: 0 0 .75rem; }
+a { color: var(--ph-accent); text-decoration: none; }
+
+.icon { flex: 0 0 auto; }
+
+.muted { color: var(--ph-muted); }
+.small { font-size: .8rem; }
+.center { text-align: center; }
+.row { display: flex; align-items: center; gap: .5rem; }
+.row.between { justify-content: space-between; }
+.grow { flex: 1 1 auto; min-width: 0; }
+.hidden { display: none !important; }
+.wrap { flex-wrap: wrap; }
+.mt { margin-top: 1rem; }
+.mb { margin-bottom: 1rem; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--ph-border); border-radius: 10px; }

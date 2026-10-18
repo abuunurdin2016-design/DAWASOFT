@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Alerts · Pharmacy</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .legend { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem; }
+    .legend span { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; color: var(--ph-muted); }
+    .legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div class="ph-app">
+    <div id="ph-offline-banner"></div>
+    <header class="ph-header" id="ph-header" data-title="Alerts"></header>
+    <main class="ph-main">
+
+      <section class="card">
+        <div class="card-head"><h3>Stock-outs &amp; low stock</h3><span class="badge danger" id="stock-count">0</span></div>
+        <div id="stockouts"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-head"><h3>Expiry watch</h3><span class="badge warn" id="expiry-count">0</span></div>
+        <div class="legend">
+          <span><i style="background:#22c55e"></i>6 months</span>
+          <span><i style="background:#eab308"></i>5 months</span>
+          <span><i style="background:#a855f7"></i>4 months</span>
+          <span><i style="background:#ec4899"></i>3 months</span>
+          <span><i style="background:#dc2626"></i>1–2 months</span>
+        </div>
+        <div id="expiring"></div>
+      </section>
+
+      <section class="card hidden" id="dlq-card">
+        <div class="card-head"><h3>Sync issues (owner)</h3><span class="badge muted" id="dlq-count">0</span></div>
+        <p class="muted small">Offline changes that permanently failed to sync are listed here.</p>
+        <div id="dlq"></div>
+      </section>
+
+      <p class="muted small" id="generated-at"></p>
+      <button class="btn btn-ghost btn-block" id="alerts-refresh">Refresh</button>
+
+    </main>
+    <nav id="ph-bottomnav"></nav>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/permissions.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/alerts.js"></script>
+</body>
+</html>
